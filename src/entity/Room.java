@@ -8,6 +8,7 @@ public class Room {
     String roomNo;
     int floor;
     boolean window;
+    RoomType roomType;
     RoomState roomState;
 
     public enum RoomState {
@@ -55,6 +56,14 @@ public class Room {
 
     public void setWindow(boolean window) {
         this.window = window;
+    }
+
+    public RoomType getRoomType() {
+        return roomType;
+    }
+
+    public void setRoomType(RoomType roomType) {
+        this.roomType = roomType;
     }
 
     public RoomState getRoomState() {
