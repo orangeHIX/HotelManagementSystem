@@ -1,26 +1,18 @@
 package business;
 
-import business.business_entity.CheckInOrder;
-import business.business_entity.Deposit;
-import business.business_entity.RoomRequest;
-import business.business_entity.RoomResult;
-
-import java.util.List;
+import business.business_entity.NewOrder;
 
 /**
  * Created by hyx on 2015/12/12.
  */
-public interface ICheckInBusiness {
+public interface ICheckInBusiness{
+    /**是否之前有预定*/
+    boolean whetherCheckInWithReservation();
 
-    boolean setCheckInOrder(CheckInOrder checkInOrder);
+    boolean setReservationOrder(long reservationOrderID);
 
-    boolean removeCheckInOrder();
+    boolean setNewOrder(NewOrder newOrder);
 
-    void confirmOrder();
+    boolean checkin();
 
-    boolean collectDeposit(Deposit deposit);
-
-    boolean openRoom();
-
-    boolean getRoomCard();
 }
