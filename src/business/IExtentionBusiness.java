@@ -6,6 +6,8 @@ package business;
 public interface IExtentionBusiness {
     boolean setExistingOrder(long existingOrderID);
 
+    int getMaxExtentionDays();
+
     boolean setExtentionDays(int days);
 
     boolean confirmExtention();

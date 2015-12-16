@@ -8,15 +8,16 @@ import java.util.Calendar;
 /**
  * Created by hyx on 2015/12/15.
  */
-public class NewOrder {
+public class NewOrder implements INewOrder {
 
     Customer orderCustomer;
     Customer stayedCustomer;
     Room room;
     Calendar checkInTime;
     Calendar checkOutTime;
-    Deposit deposit;
+    IDeposit deposit;
 
+    @Override
     public Customer getOrderCustomer() {
         return orderCustomer;
     }
@@ -25,6 +26,7 @@ public class NewOrder {
         this.orderCustomer = orderCustomer;
     }
 
+    @Override
     public Customer getStayedCustomer() {
         return stayedCustomer;
     }
@@ -33,6 +35,7 @@ public class NewOrder {
         this.stayedCustomer = stayedCustomer;
     }
 
+    @Override
     public Room getRoom() {
         return room;
     }
@@ -41,6 +44,7 @@ public class NewOrder {
         this.room = room;
     }
 
+    @Override
     public Calendar getCheckInTime() {
         return checkInTime;
     }
@@ -49,19 +53,17 @@ public class NewOrder {
         this.checkInTime = checkInTime;
     }
 
+    @Override
     public Calendar getCheckOutTime() {
         return checkOutTime;
     }
 
-    public void setCheckOutTime(Calendar checkOutTime) {
-        this.checkOutTime = checkOutTime;
-    }
-
-    public Deposit getDeposit() {
+    @Override
+    public IDeposit getDeposit() {
         return deposit;
     }
 
-    public void setDeposit(Deposit deposit) {
-        this.deposit = deposit;
+    public void setCheckOutTime(Calendar checkOutTime) {
+        this.checkOutTime = checkOutTime;
     }
 }
