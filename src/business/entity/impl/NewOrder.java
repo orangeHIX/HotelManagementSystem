@@ -1,5 +1,7 @@
-package business.business_entity;
+package business.entity.impl;
 
+import business.entity.IDeposit;
+import business.entity.INewOrder;
 import entity.Customer;
 import entity.Room;
 
@@ -58,12 +60,12 @@ public class NewOrder implements INewOrder {
         return checkOutTime;
     }
 
+    public void setCheckOutTime(Calendar checkOutTime) {
+        this.checkOutTime = checkOutTime;
+    }
+
     @Override
     public IDeposit getDeposit() {
         return deposit;
-    }
-
-    public void setCheckOutTime(Calendar checkOutTime) {
-        this.checkOutTime = checkOutTime;
     }
 }

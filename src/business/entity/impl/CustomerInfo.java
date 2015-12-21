@@ -1,4 +1,6 @@
-package business.business_entity;
+package business.entity.impl;
+
+import business.entity.ICustomerInfo;
 
 /**
  * Created by hyx on 2015/12/16.

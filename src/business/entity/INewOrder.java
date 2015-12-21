@@ -1,4 +1,4 @@
-package business.business_entity;
+package business.entity;
 
 import entity.Customer;
 import entity.Room;
@@ -6,6 +6,7 @@ import entity.Room;
 import java.util.Calendar;
 
 /**
+ * ¶©µ¥Ô­ÐÍ
  * Created by hyx on 2015/12/16.
  */
 public interface INewOrder {
