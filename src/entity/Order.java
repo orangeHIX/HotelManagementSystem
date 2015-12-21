@@ -7,35 +7,27 @@ import java.sql.Timestamp;
  */
 public class Order {
     long ID;
-    /**下单人*/
+    /**
+     * 下单人
+     */
     Customer orderCustomer;
-    /**入住代表人*/
+    /**
+     * 入住代表人
+     */
     Customer accommodateCustomer;
-    /**入住的房间*/
+    /**
+     * 入住的房间
+     */
     Room room;
     Timestamp generateTime;
     Timestamp closeTime;
     Timestamp checkinTime;
     Timestamp checkoutTime;
+    /**
+     * 已付金额
+     */
     int paid;
     OrderState orderState;
-
-
-    public enum OrderState {
-        reservation_generate("预订请求产生"), reservation_confirm("预订确认"),
-        checkin_generate("入住请求产生"), checkin_confirm("入住确认"),
-        complete("完成"), close("关闭");
-
-        String name;
-
-        OrderState(String name) {
-            this.name = name;
-        }
-
-        public String getName() {
-            return name;
-        }
-    }
 
     public long getID() {
         return ID;
@@ -115,5 +107,21 @@ public class Order {
 
     public void setOrderState(OrderState orderState) {
         this.orderState = orderState;
+    }
+
+    public enum OrderState {
+        reservation_generate("预订请求产生"), reservation_confirm("预订确认"),
+        checkin_generate("入住请求产生"), checkin_confirm("入住确认"),
+        complete("完成"), close("关闭");
+
+        String name;
+
+        OrderState(String name) {
+            this.name = name;
+        }
+
+        public String getName() {
+            return name;
+        }
     }
 }

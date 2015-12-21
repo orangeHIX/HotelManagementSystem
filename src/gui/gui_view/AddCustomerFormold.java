@@ -1,4 +1,4 @@
-package gui;
+package gui.gui_view;
 
 import entity.Customer;
 

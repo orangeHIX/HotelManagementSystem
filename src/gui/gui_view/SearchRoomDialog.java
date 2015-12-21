@@ -1,4 +1,4 @@
-package gui;
+package gui.gui_view;
 
 import org.jdatepicker.JDateComponentFactory;
 import org.jdatepicker.impl.JDatePickerImpl;
@@ -6,31 +6,18 @@ import org.jdatepicker.impl.JDatePickerImpl;
 import javax.swing.*;
 import java.awt.event.*;
 
-public class AddReservationDialog extends JDialog {
+public class SearchRoomDialog extends JDialog {
     private JPanel contentPane;
     private JButton buttonOK;
     private JButton buttonCancel;
-    private JTextField textFieldOrderCode;
-    private JTextField textField3;
-    private JTextField textField4;
-    private JTextField textField7;
-    private JTextField textField8;
-    private JButton button1;
-    private JTextField textField9;
-    private JTextField textField10;
-    private JTextField textField11;
+    private JButton buttonReset;
     private JTable table1;
-    private JTextField textField12;
-    private JTextField textField13;
-    private JTextField textField14;
-    private JComboBox comboBox1;
-    private JTable table2;
-    private JTextField textField1;
-    private JTextField textField2;
+    private JSpinner spinnerPeopleNum;
+    private JTextField textFieldFilter;
     private JDatePickerImpl JDatePickerImpl1;
     private JDatePickerImpl JDatePickerImpl2;
 
-    public AddReservationDialog() {
+    public SearchRoomDialog() {
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(buttonOK);
@@ -63,6 +50,13 @@ public class AddReservationDialog extends JDialog {
         }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
     }
 
+    public static void main(String[] args) {
+        SearchRoomDialog dialog = new SearchRoomDialog();
+        dialog.pack();
+        dialog.setVisible(true);
+        System.exit(0);
+    }
+
     private void onOK() {
 // add your code here
         dispose();
@@ -72,16 +66,11 @@ public class AddReservationDialog extends JDialog {
 // add your code here if necessary
         dispose();
     }
+
     private void createUIComponents() {
         JDateComponentFactory dateComponentFactory = new JDateComponentFactory();
-        JDatePickerImpl1 = (JDatePickerImpl)dateComponentFactory.createJDatePicker();
-        JDatePickerImpl2 = (JDatePickerImpl)dateComponentFactory.createJDatePicker();
+        JDatePickerImpl1 = (JDatePickerImpl) dateComponentFactory.createJDatePicker();
+        JDatePickerImpl2 = (JDatePickerImpl) dateComponentFactory.createJDatePicker();
         JDatePickerImpl2.getModel().addDay(1);
-    }
-    public static void main(String[] args) {
-        AddReservationDialog dialog = new AddReservationDialog();
-        dialog.pack();
-        dialog.setVisible(true);
-        System.exit(0);
     }
 }

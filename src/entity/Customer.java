@@ -7,6 +7,9 @@ public class Customer {
 
     long ID;
     String name;
+    /**
+     * 身份证件号
+     */
     String IDNumber;
     String phoneNumber;
 
