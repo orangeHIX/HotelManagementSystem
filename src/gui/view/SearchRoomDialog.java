@@ -1,21 +1,23 @@
-package gui.gui_view;
+package gui.view;
 
-import entity.Customer;
+import org.jdatepicker.JDateComponentFactory;
+import org.jdatepicker.impl.JDatePickerImpl;
 
 import javax.swing.*;
 import java.awt.event.*;
 
-public class AddCustomerDialog extends JDialog {
+public class SearchRoomDialog extends JDialog {
     private JPanel contentPane;
     private JButton buttonOK;
     private JButton buttonCancel;
-    private JPanel panelCommonInfor;
-    private JPanel panelContactInfor;
-    private JTextField textFieldName;
-    private JTextField textFieldID;
-    private JTextField textFieldPhone;
+    private JButton buttonReset;
+    private JTable table1;
+    private JSpinner spinnerPeopleNum;
+    private JTextField textFieldFilter;
+    private JDatePickerImpl JDatePickerImpl1;
+    private JDatePickerImpl JDatePickerImpl2;
 
-    public AddCustomerDialog() {
+    public SearchRoomDialog() {
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(buttonOK);
@@ -49,7 +51,7 @@ public class AddCustomerDialog extends JDialog {
     }
 
     public static void main(String[] args) {
-        AddCustomerDialog dialog = new AddCustomerDialog();
+        SearchRoomDialog dialog = new SearchRoomDialog();
         dialog.pack();
         dialog.setVisible(true);
         System.exit(0);
@@ -65,25 +67,10 @@ public class AddCustomerDialog extends JDialog {
         dispose();
     }
 
-    public void setData(Customer data) {
-        textFieldName.setText(data.getName());
-        textFieldID.setText(data.getIDNumber());
-        textFieldPhone.setText(data.getPhoneNumber());
-    }
-
-    public void getData(Customer data) {
-        data.setName(textFieldName.getText());
-        data.setIDNumber(textFieldID.getText());
-        data.setPhoneNumber(textFieldPhone.getText());
-    }
-
-    public boolean isModified(Customer data) {
-        if (textFieldName.getText() != null ? !textFieldName.getText().equals(data.getName()) : data.getName() != null)
-            return true;
-        if (textFieldID.getText() != null ? !textFieldID.getText().equals(data.getIDNumber()) : data.getIDNumber() != null)
-            return true;
-        if (textFieldPhone.getText() != null ? !textFieldPhone.getText().equals(data.getPhoneNumber()) : data.getPhoneNumber() != null)
-            return true;
-        return false;
+    private void createUIComponents() {
+        JDateComponentFactory dateComponentFactory = new JDateComponentFactory();
+        JDatePickerImpl1 = (JDatePickerImpl) dateComponentFactory.createJDatePicker();
+        JDatePickerImpl2 = (JDatePickerImpl) dateComponentFactory.createJDatePicker();
+        JDatePickerImpl2.getModel().addDay(1);
     }
 }

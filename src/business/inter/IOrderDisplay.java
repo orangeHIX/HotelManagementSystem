@@ -1,8 +1,8 @@
 package business.inter;
 
 import business.NoFilterConditionException;
-import business.entity.ICustomerInfo;
-import business.entity.IRoomInfo;
+import business.entity.CustomerInfo;
+import business.entity.RoomInfo;
 import entity.Order;
 
 import java.util.Calendar;
@@ -26,7 +26,7 @@ public interface IOrderDisplay {
      *
      * @param roomInfo 关于房间的筛选信息。如果roomInfo的某个信息字段为null，表示不用此信息段进行筛选。
      */
-    void setRoomInfoFilterConditions(IRoomInfo roomInfo);
+    void setRoomInfoFilterConditions(RoomInfo roomInfo);
 
     /**
      * 此方法用于筛选订单关联的下单人。此筛选条件为不是必要的。
@@ -34,7 +34,8 @@ public interface IOrderDisplay {
      *
      * @param customerInfo 关于下单人的筛选信息。如果customerInfo的某个信息字段为null，表示不用此信息段进行筛选。
      */
-    void setCustomerInfoFilterConditions(ICustomerInfo customerInfo);
+    void setCustomerInfoFilterConditions(
+            CustomerInfo customerInfo);
 
     /**
      * 查找符合所用筛选条件的订单，订单按照订单产生时间的先后顺序排列。

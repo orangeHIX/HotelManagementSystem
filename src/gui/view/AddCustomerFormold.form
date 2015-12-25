@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="gui.gui_view.AddCustomerFormold">
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="gui.view.AddCustomerFormold">
   <grid id="27dc6" binding="JPanelAddCustomer" layout-manager="FormLayout">
     <rowspec value="center:d:grow"/>
     <rowspec value="top:4dlu:noGrow"/>

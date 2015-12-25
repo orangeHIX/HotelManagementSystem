@@ -1,7 +1,7 @@
 package business.inter;
 
 import business.NoFilterConditionException;
-import business.entity.ICustomerInfo;
+import business.entity.CustomerInfo;
 import entity.Customer;
 
 import java.util.List;
@@ -16,7 +16,7 @@ public interface ICustomerDisplay {
      *
      * @param customerInfo 关于客户的筛选信息。如果customerInfo的某个信息字段为null，表示不用此信息段进行筛选。
      */
-    void setCustomerFilterConditions(ICustomerInfo customerInfo);
+    void setCustomerFilterConditions(CustomerInfo customerInfo);
 
     /**
      * 查找符合所用筛选条件的客户，订单按照客户名字进行字典排序。

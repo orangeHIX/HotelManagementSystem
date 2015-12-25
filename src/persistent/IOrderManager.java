@@ -64,7 +64,7 @@ public interface IOrderManager {
      * 订单包含的实体对象不为空，但它们的ID如果此时不存在于数据库中，属于异常状况。<br/>
      * 出现异常状况订单插入失败。
      *
-     * @param newOrder 订单在数据库中的ID
+     * @param newOrder 要修改的订单
      * @return 是否修改订单成功
      */
     boolean modifyOrder(Order newOrder);

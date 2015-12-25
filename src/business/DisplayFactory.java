@@ -1,6 +1,7 @@
 package business;
 
 import business.impl.CustomerDisplay;
+import business.impl.RoomWithOrderDisplay;
 import business.inter.ICustomerDisplay;
 import business.inter.IOrderDisplay;
 import business.inter.IRoomWithOrderDisplay;
@@ -15,15 +16,14 @@ public class DisplayFactory {
     }
 
     //优先完成这个
-    IOrderDisplay createOrderDisplay(){
+    public static IOrderDisplay createOrderDisplay(){
         //todo
         return null;
     }
 
     //优先完成这个
-    IRoomWithOrderDisplay createRoomWithOrderDisplay(){
-        //todo
-        return null;
+    public static IRoomWithOrderDisplay createRoomWithOrderDisplay(){
+        return new RoomWithOrderDisplay();
     }
 
 

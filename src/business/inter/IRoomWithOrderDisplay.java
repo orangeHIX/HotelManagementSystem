@@ -1,11 +1,12 @@
 package business.inter;
 
 import business.NoFilterConditionException;
-import business.entity.IRoomInfo;
-import business.entity.IRoomWithOrder;
+import business.entity.RoomInfo;
+import business.entity.RoomWithOrder;
 
 import java.util.Calendar;
 import java.util.List;
+
 
 /**
  * 本类用于从房间和时间段的角度分类查询房间和关联的订单。
@@ -33,7 +34,7 @@ public interface IRoomWithOrderDisplay {
      *
      * @param roomInfo 关于房间的筛选信息。如果roomInfo的某个信息字段为null，表示不用此信息段进行筛选。
      */
-    void setRoomInfoFilterConditions(IRoomInfo roomInfo);
+    void setRoomInfoFilterConditions(RoomInfo roomInfo);
 
     /**
      * 查找符合所用筛选条件的房间及这些房间符合筛选条件的订单，这些订单将按照他们关联的房间分类，每个房间关联的订单按照时间的先后顺序排列。
@@ -42,5 +43,5 @@ public interface IRoomWithOrderDisplay {
      *
      * @return 符合条件的房间及它们关联的有序订单。如果查询结果为空，返回null
      */
-    List<IRoomWithOrder> searchRoomWithOrder() throws NoFilterConditionException;
+    List<RoomWithOrder> searchRoomWithOrder() throws NoFilterConditionException;
 }

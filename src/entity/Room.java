@@ -72,5 +72,16 @@ public class Room {
         public String getName() {
             return name;
         }
+
+        public static RoomState fromString(String name){
+            if(name != null){
+                for(RoomState roomState : RoomState.values()){
+                    if(roomState.name.compareTo(name) == 0){
+                        return roomState;
+                    }
+                }
+            }
+            return null;
+        }
     }
 }

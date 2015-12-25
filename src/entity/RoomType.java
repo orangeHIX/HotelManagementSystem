@@ -49,4 +49,6 @@ public class RoomType {
     public void setCapicity(int capicity) {
         this.capicity = capicity;
     }
+
+
 }

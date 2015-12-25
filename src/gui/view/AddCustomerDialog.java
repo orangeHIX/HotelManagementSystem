@@ -1,36 +1,21 @@
-package gui.gui_view;
+package gui.view;
 
-import org.jdatepicker.JDateComponentFactory;
-import org.jdatepicker.impl.JDatePickerImpl;
+import entity.Customer;
 
 import javax.swing.*;
 import java.awt.event.*;
 
-public class AddReservationDialog extends JDialog {
+public class AddCustomerDialog extends JDialog {
     private JPanel contentPane;
     private JButton buttonOK;
     private JButton buttonCancel;
-    private JTextField textFieldOrderCode;
-    private JTextField textField3;
-    private JTextField textField4;
-    private JTextField textField7;
-    private JTextField textField8;
-    private JButton button1;
-    private JTextField textField9;
-    private JTextField textField10;
-    private JTextField textField11;
-    private JTable table1;
-    private JTextField textField12;
-    private JTextField textField13;
-    private JTextField textField14;
-    private JComboBox comboBox1;
-    private JTable table2;
-    private JTextField textField1;
-    private JTextField textField2;
-    private JDatePickerImpl JDatePickerImpl1;
-    private JDatePickerImpl JDatePickerImpl2;
+    private JPanel panelCommonInfor;
+    private JPanel panelContactInfor;
+    private JTextField textFieldName;
+    private JTextField textFieldID;
+    private JTextField textFieldPhone;
 
-    public AddReservationDialog() {
+    public AddCustomerDialog() {
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(buttonOK);
@@ -64,7 +49,7 @@ public class AddReservationDialog extends JDialog {
     }
 
     public static void main(String[] args) {
-        AddReservationDialog dialog = new AddReservationDialog();
+        AddCustomerDialog dialog = new AddCustomerDialog();
         dialog.pack();
         dialog.setVisible(true);
         System.exit(0);
@@ -80,10 +65,25 @@ public class AddReservationDialog extends JDialog {
         dispose();
     }
 
-    private void createUIComponents() {
-        JDateComponentFactory dateComponentFactory = new JDateComponentFactory();
-        JDatePickerImpl1 = (JDatePickerImpl) dateComponentFactory.createJDatePicker();
-        JDatePickerImpl2 = (JDatePickerImpl) dateComponentFactory.createJDatePicker();
-        JDatePickerImpl2.getModel().addDay(1);
+    public void setData(Customer data) {
+        textFieldName.setText(data.getName());
+        textFieldID.setText(data.getIDNumber());
+        textFieldPhone.setText(data.getPhoneNumber());
+    }
+
+    public void getData(Customer data) {
+        data.setName(textFieldName.getText());
+        data.setIDNumber(textFieldID.getText());
+        data.setPhoneNumber(textFieldPhone.getText());
+    }
+
+    public boolean isModified(Customer data) {
+        if (textFieldName.getText() != null ? !textFieldName.getText().equals(data.getName()) : data.getName() != null)
+            return true;
+        if (textFieldID.getText() != null ? !textFieldID.getText().equals(data.getIDNumber()) : data.getIDNumber() != null)
+            return true;
+        if (textFieldPhone.getText() != null ? !textFieldPhone.getText().equals(data.getPhoneNumber()) : data.getPhoneNumber() != null)
+            return true;
+        return false;
     }
 }

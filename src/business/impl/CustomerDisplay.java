@@ -1,7 +1,7 @@
 package business.impl;
 
+import business.entity.CustomerInfo;
 import business.inter.ICustomerDisplay;
-import business.entity.ICustomerInfo;
 import business.NoFilterConditionException;
 import entity.Customer;
 import persistent.impl.CustomerManager;
@@ -14,14 +14,14 @@ import java.util.function.Predicate;
  */
 public class CustomerDisplay implements ICustomerDisplay {
 
-    ICustomerInfo customerInfo;
+    CustomerInfo customerInfo;
 
-    @Override
-    public void setCustomerFilterConditions(ICustomerInfo customerInfo) {
+   
+    public void setCustomerFilterConditions(CustomerInfo customerInfo) {
         this.customerInfo = customerInfo;
     }
 
-    @Override
+    
     public List<Customer> getCustomer() throws NoFilterConditionException {
         if(customerInfo == null){
             throw new NoFilterConditionException("没有客户的筛选信息");
