@@ -1,5 +1,7 @@
 package entity;
 
+import utils.DateString;
+
 import java.sql.Timestamp;
 
 /**
@@ -110,8 +112,8 @@ public class Order {
     }
 
     public enum OrderState {
-        reservation_generate("预订请求产生"), reservation_confirm("预订确认"),
-        checkin_generate("入住请求产生"), checkin_confirm("入住确认"),
+        reservation_generate("预订产生"), reservation_confirm("预订"),
+        checkin_generate("入住产生"), checkin_confirm("入住"),
         complete("完成"), close("关闭");
 
         String name;
@@ -123,5 +125,32 @@ public class Order {
         public String getName() {
             return name;
         }
+
+        public static OrderState fromString(String name){
+            if(name != null){
+                for(OrderState orderState : OrderState.values()){
+                    if(orderState.name().compareTo(name) == 0){
+                        return orderState;
+                    }
+                }
+            }
+            return null;
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "accommodateCustomer=" + accommodateCustomer +
+                ", ID=" + ID +
+                ", orderCustomer=" + orderCustomer +
+                ", room=" + room +
+                ", generateTime=" + DateString.toString(generateTime) +
+                ", closeTime=" + DateString.toString(closeTime) +
+                ", checkinTime=" + DateString.toString(checkinTime) +
+                ", checkoutTime=" + DateString.toString(checkoutTime) +
+                ", paid=" + paid +
+                ", orderState=" + orderState +
+                '}';
     }
 }

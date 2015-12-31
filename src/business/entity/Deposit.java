@@ -14,4 +14,11 @@ public class Deposit  {
     public void setDeposit(int deposit) {
         this.deposit = deposit;
     }
+
+    @Override
+    public String toString() {
+        return "Deposit{" +
+                "deposit=" + deposit +
+                '}';
+    }
 }

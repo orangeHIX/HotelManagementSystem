@@ -73,15 +73,28 @@ public class Room {
             return name;
         }
 
-        public static RoomState fromString(String name){
-            if(name != null){
-                for(RoomState roomState : RoomState.values()){
-                    if(roomState.name.compareTo(name) == 0){
+        public static RoomState fromString(String name) {
+            if (name != null) {
+                for (RoomState roomState : RoomState.values()) {
+                    //System.out.println(roomState.name + ", "+name +", "+(roomState.name.compareTo(name) == 0));
+                    if (roomState.name().compareTo(name) == 0) {
                         return roomState;
                     }
                 }
             }
             return null;
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Room{" +
+                "floor=" + floor +
+                ", ID=" + ID +
+                ", roomNo='" + roomNo + '\'' +
+                ", window=" + window +
+                ", roomType=" + roomType +
+                ", roomState=" + roomState +
+                '}';
     }
 }

@@ -12,6 +12,9 @@ import java.awt.*;
  */
 public class RoomWithOrderCellRender extends JLabel implements TableCellRenderer {
 
+    public static final Color pink =  new Color(240,128,128);
+    public static final Color sky_blue =new Color(100,149,237);
+    public static final Color orange  = new Color(255,140,0);
     public RoomWithOrderCellRender() {
         super();
         setOpaque(true);
@@ -26,31 +29,39 @@ public class RoomWithOrderCellRender extends JLabel implements TableCellRenderer
         //setText("<html><b><u>T</u>wo</b><br>lines</html>");
         if (value != null) {
             if (value instanceof Order) {
-                setBackground(Color.CYAN);
-                Order order =((Order) value);
-                setText("<html>"+order.getID()+"<br>"+order.getAccommodateCustomer().getName()+"</html>");
+                Order order = ((Order) value);
+                setBackground(getOrderColor(order.getOrderState()));
+                setText("<html><center>" + order.getID() +
+                        "<br>" + order.getOrderState().getName() +
+                        "<br>" + order.getAccommodateCustomer().getName() +
+                        "</center></html>");
             } else if (value instanceof Room) {
-                setBackground(Color.PINK);
-                setText("<html>"+((Room) value).getRoomNo()+"<br>"+((Room) value).getRoomType().getTypeName()+"</html>");
+                setBackground(pink);
+                setText("<html>" + ((Room) value).getRoomNo() + "<br>" + ((Room) value).getRoomType().getTypeName() + "</html>");
             }
 
-            if (hasFocus) {
-                setBorder(UIManager.getBorder("Table.focusCellHighlightBorder"));
-            } else {
-                setBorder(null);
-            }
-        }else{
-            setBackground(null);
+        } else {
+            setBackground(Color.LIGHT_GRAY);
             setText("");
         }
 
-
-//        int height = new Double(this.getPreferredSize().getHeight()).intValue();
-//        if (table.getRowHeight() < height) {
-//            table.setRowHeight(row, height);
-//        }
+        if (hasFocus) {
+            setBorder(UIManager.getBorder("Table.focusCellHighlightBorder"));
+        } else {
+            setBorder(null);
+        }
 
         return this;
+    }
+
+    private Color getOrderColor(Order.OrderState state){
+        switch (state){
+            case checkin_confirm:
+                return orange;
+            case reservation_confirm:
+                return sky_blue;
+        }
+        return null;
     }
 
 

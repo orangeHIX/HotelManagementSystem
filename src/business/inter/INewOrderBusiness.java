@@ -14,6 +14,9 @@ public interface INewOrderBusiness {
      */
     Order submitOrder(NewOrder newOrder);
 
+    /**钩子方法，提交订单时订单会被置为此状态*/
+    Order.OrderState getSubmitOrderState();
+
     /**
      * 撤销应经提交的订单。
      * @return 成功撤销已经提交的订单订单或者当前还没有提交订单，返回true。其他情况返回false*/

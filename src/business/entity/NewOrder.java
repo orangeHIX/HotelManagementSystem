@@ -2,7 +2,9 @@ package business.entity;
 
 import entity.Customer;
 import entity.Room;
+import gui.ViewUtils;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 /**
@@ -75,5 +77,19 @@ public class NewOrder {
 
     public void setStayedCustomer(Customer stayedCustomer) {
         this.stayedCustomer = stayedCustomer;
+    }
+
+    @Override
+    public String toString() {
+        SimpleDateFormat dateFormat =
+                ViewUtils.getTimeFormat_yyyy_MM_dd_HH_mm_ss_E();
+        return "NewOrder{" +
+                "checkInTime=" + dateFormat.format(checkInTime.getTime()) +
+                ", orderCustomer=" + orderCustomer +
+                ", stayedCustomer=" + stayedCustomer +
+                ", room=" + room +
+                ", checkOutTime=" + dateFormat.format(checkOutTime.getTime()) +
+                ", deposit=" + deposit +
+                '}';
     }
 }

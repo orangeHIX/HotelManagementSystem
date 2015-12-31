@@ -11,7 +11,7 @@ import business.inter.IRoomWithOrderDisplay;
  */
 public class DisplayFactory {
 
-    ICustomerDisplay createCustomerDisplay(){
+    public static ICustomerDisplay createCustomerDisplay(){
         return new CustomerDisplay();
     }
 

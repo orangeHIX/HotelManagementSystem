@@ -50,5 +50,14 @@ public class RoomType {
         this.capicity = capicity;
     }
 
-
+    @Override
+    public String toString() {
+        return "RoomType{" +
+                "capicity=" + capicity +
+                ", ID=" + ID +
+                ", typeName='" + typeName + '\'' +
+                ", pricePerNight=" + pricePerNight +
+                ", subscriptionPrice=" + subscriptionPrice +
+                '}';
+    }
 }

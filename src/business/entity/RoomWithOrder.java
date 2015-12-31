@@ -11,21 +11,24 @@ import java.util.List;
  */
 public class RoomWithOrder {
 
+
+    Room room;
     List<Order> orderList;
+    Calendar startDate;
+    Calendar closingDate;
 
     public RoomWithOrder() {
 
     }
 
-
-    public Room geRoom() {
-        //Log.d("geRoom orderList" + orderList);
-        if (orderList != null && !orderList.isEmpty()) {
-            return orderList.get(0).getRoom();
-        }
-        return null;
+    public Room getRoom() {
+        //Log.d("getRoom orderList" + orderList);
+        return room;
     }
 
+    public void setRoom(Room room) {
+        this.room = room;
+    }
 
     public List<Order> getOrderList() {
         return orderList;
@@ -37,11 +40,18 @@ public class RoomWithOrder {
 
 
     public Calendar getStartDate() {
-        return null;
+        return startDate;
     }
 
+    public void setStartDate(Calendar startDate) {
+        this.startDate = startDate;
+    }
 
     public Calendar getClosingDate() {
-        return null;
+        return closingDate;
+    }
+
+    public void setClosingDate(Calendar closingDate) {
+        this.closingDate = closingDate;
     }
 }

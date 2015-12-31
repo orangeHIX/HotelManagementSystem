@@ -57,4 +57,6 @@ public interface IRoomManager {
      * @return 是否成功移除房间信息。
      */
     boolean removeRoom(long ID);
+
+    boolean modifyRoom(Long ID, String newState);
 }
